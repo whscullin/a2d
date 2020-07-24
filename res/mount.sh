@@ -26,6 +26,11 @@ function add_file {
 
 cecho yellow "Copying files to $MOUNT_DIR/"
 
+
+if [ -e "res/package/PRODOS" ]; then
+    add_file "res/package/PRODOS" "ProDOS" FF0000
+fi
+
 perl -p -i -e 's/\r?\n/\r/g' "res/package/READ.ME" # Ensure Apple line endings
 add_file "res/package/READ.ME" "READ.ME" 040000
 
